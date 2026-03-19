@@ -28,7 +28,7 @@ jobs:
         run: playwright install chromium
 
       - name: Build frontend
-        run: cd frontend && npm ci && npm run build
+        run: cd frontend && npm ci --legacy-peer-deps && npm run build
 
       - name: Build Python backend
         run: |
@@ -45,7 +45,7 @@ jobs:
       - name: Build Electron (macOS)
         run: |
           cd electron
-          npm ci
+          npm ci --legacy-peer-deps
           npm run build:mac
         env:
           ELECTRON_MIRROR: https://npmmirror.com/mirrors/electron/
@@ -79,7 +79,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Build frontend
-        run: cd frontend && npm ci && npm run build
+        run: cd frontend && npm ci --legacy-peer-deps && npm run build
 
       - name: Build Python backend
         run: |
@@ -97,7 +97,7 @@ jobs:
       - name: Build Electron (Windows)
         run: |
           cd electron
-          npm ci
+          npm ci --legacy-peer-deps
           npm run build:win
         env:
           ELECTRON_MIRROR: https://npmmirror.com/mirrors/electron/
