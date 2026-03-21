@@ -396,13 +396,13 @@ class DuckMailMailbox(BaseMailbox):
         # 创建账号
         r = requests.post(f"{self.api}/api/mail?endpoint=%2Faccounts",
             json={"address": address, "password": password},
-            headers=self._common_headers(), proxies=self.proxy, timeout=15)
+            headers=self._common_headers(), proxies=self.proxy, timeout=15, verify=False)
         data = r.json()
         self._address = data.get("address", address)
         # 登录获取 token
         r2 = requests.post(f"{self.api}/api/mail?endpoint=%2Ftoken",
             json={"address": self._address, "password": password},
-            headers=self._common_headers(), proxies=self.proxy, timeout=15)
+            headers=self._common_headers(), proxies=self.proxy, timeout=15, verify=False)
         self._token = r2.json().get("token", "")
         return MailboxAccount(email=self._address, account_id=self._token)
 
@@ -412,7 +412,7 @@ class DuckMailMailbox(BaseMailbox):
             r = requests.get(f"{self.api}/api/mail?endpoint=%2Fmessages%3Fpage%3D1",
                 headers={"authorization": f"Bearer {account.account_id}",
                          "x-api-provider-base-url": self.provider_url},
-                proxies=self.proxy, timeout=10)
+                proxies=self.proxy, timeout=10, verify=False)
             return {str(m["id"]) for m in r.json().get("hydra:member", [])}
         except Exception:
             return set()
@@ -427,7 +427,7 @@ class DuckMailMailbox(BaseMailbox):
                 r = requests.get(f"{self.api}/api/mail?endpoint=%2Fmessages%3Fpage%3D1",
                     headers={"authorization": f"Bearer {account.account_id}",
                              "x-api-provider-base-url": self.provider_url},
-                    proxies=self.proxy, timeout=10)
+                    proxies=self.proxy, timeout=10, verify=False)
                 msgs = r.json().get("hydra:member", [])
                 for msg in msgs:
                     mid = str(msg.get("id") or msg.get("msgid") or "")
@@ -438,7 +438,7 @@ class DuckMailMailbox(BaseMailbox):
                         r2 = requests.get(f"{self.api}/api/mail?endpoint=%2Fmessages%2F{mid}",
                             headers={"authorization": f"Bearer {account.account_id}",
                                      "x-api-provider-base-url": self.provider_url},
-                            proxies=self.proxy, timeout=10)
+                            proxies=self.proxy, timeout=10, verify=False)
                         detail = r2.json()
                         body = str(detail.get("text") or "") + " " + str(detail.get("subject") or "")
                     except Exception:
@@ -461,7 +461,7 @@ class DuckMailMailbox(BaseMailbox):
                 r = requests.get(f"{self.api}/api/mail?endpoint=%2Fmessages%3Fpage%3D1",
                     headers={"authorization": f"Bearer {account.account_id}",
                              "x-api-provider-base-url": self.provider_url},
-                    proxies=self.proxy, timeout=10)
+                    proxies=self.proxy, timeout=10, verify=False)
                 msgs = r.json().get("hydra:member", [])
                 for msg in msgs:
                     mid = str(msg.get("id") or msg.get("msgid") or "")
@@ -472,7 +472,7 @@ class DuckMailMailbox(BaseMailbox):
                         r2 = requests.get(f"{self.api}/api/mail?endpoint=%2Fmessages%2F{mid}",
                             headers={"authorization": f"Bearer {account.account_id}",
                                      "x-api-provider-base-url": self.provider_url},
-                            proxies=self.proxy, timeout=10)
+                            proxies=self.proxy, timeout=10, verify=False)
                         detail = r2.json()
                         body = str(detail.get("text") or "") + " " + str(detail.get("html") or "") + " " + str(detail.get("subject") or "")
                     except Exception:
@@ -609,6 +609,7 @@ class MoeMailMailbox(BaseMailbox):
         import requests, random, string
         s = requests.Session()
         s.proxies = self.proxy
+        s.verify = False
         ua = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
         s.headers.update({"user-agent": ua, "origin": self.api, "referer": f"{self.api}/zh-CN/login"})
         # 注册
