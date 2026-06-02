@@ -208,15 +208,28 @@ Field formats are documented inline in the Settings editor — the backend rende
 
 ### Proxy pool
 
-| 🌟 Recommended Proxy | Description |
-| :--- | :--- |
-| <a href="https://www.swiftproxy.net/?ref=lxf746"><img src="assets/swiftproxy.svg" width="130" alt="Swiftproxy"/></a> | **[Swiftproxy](https://www.swiftproxy.net/?ref=lxf746)** — 80M+ high-quality residential IPs, stable and highly anonymous, dynamic traffic never expires, free trial available, perfect fit for automated rotation. |
-
 - **Static proxies** — added manually on the Proxy page, weighted by success rate, auto-disabled after 5 consecutive failures
 - **API extraction** — pulls IPs dynamically via HTTP API, works for most vendor extraction endpoints
 - **Rotating gateway** — fixed entry, different exit IP per request — works for BrightData / Oxylabs / IPRoyal etc.
 
 When a `proxy` provider is enabled in the database, registration tries dynamic proxies first and falls back to the static pool on failure.
+
+> **Recommended for proxy pool**
+
+<table>
+<tr>
+<td width="220" align="center">
+<a href="https://colaproxy.com/?utm_source=lxf746&utm_medium=lxf746&ref=lxf746" target="_blank">
+<img src="assets/colaproxy.png" alt="ColaProxy" width="180" />
+</a>
+</td>
+<td>
+<b><a href="https://colaproxy.com/?utm_source=lxf746&utm_medium=lxf746&ref=lxf746">ColaProxy</a></b> — Free trial of 90M+ overseas clean IPs, from $0.3/GB. Residential / mobile / static / unlimited proxies all supported.<br/>
+High-speed rotation + multi-account isolation, lowering ban rate and improving registration / automation success.<br/>
+<a href="https://colaproxy.com/?utm_source=lxf746&utm_medium=lxf746&ref=lxf746"><b>Free trial →</b></a>
+</td>
+</tr>
+</table>
 
 ### SMS providers
 
@@ -462,6 +475,17 @@ Search the group ID inside QQ. For bugs and feature requests, please use [Issues
 <b><a href="https://www.rapidproxy.io/?ref=lxf">RapidProxy</a></b> — High-quality residential proxies with smart IP rotation, low ban rate, and non-expiring traffic. Powerful for data collection.<br/>
 90M+ real residential IPs · 200+ countries / regions · 99.9% uptime · &lt;0.5s response.<br/>
 <a href="https://www.rapidproxy.io/?ref=lxf"><b>Free trial →</b></a>
+</td>
+</tr>
+<tr>
+<td width="220" align="center">
+<a href="https://www.swiftproxy.net/?ref=lxf746" target="_blank">
+<img src="assets/swiftproxy.svg" alt="Swiftproxy" width="180" />
+</a>
+</td>
+<td>
+<b><a href="https://www.swiftproxy.net/?ref=lxf746">Swiftproxy</a></b> — 80M+ high-quality residential IPs, stable and highly anonymous connections, dynamic traffic never expires, free trial available.<br/>
+<a href="https://www.swiftproxy.net/?ref=lxf746"><b>Free trial →</b></a>
 </td>
 </tr>
 </table>

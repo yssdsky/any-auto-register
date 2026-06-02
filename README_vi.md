@@ -208,15 +208,28 @@ Chọn một dịch vụ email để nhận mã xác minh. Cấu hình email, ca
 
 ### Proxy pool
 
-| 🌟 Proxy đề xuất | Mô tả |
-| :--- | :--- |
-| <a href="https://www.swiftproxy.net/?ref=lxf746"><img src="assets/swiftproxy.svg" width="130" alt="Swiftproxy"/></a> | **[Swiftproxy](https://www.swiftproxy.net/?ref=lxf746)** — 80M+ IP dân cư chất lượng cao, kết nối ổn định ẩn danh cao, lưu lượng động không hết hạn, hỗ trợ dùng thử miễn phí, hoàn hảo cho xoay proxy tự động. |
-
 - **Static proxy** — thêm thủ công ở trang Proxy, weight theo tỷ lệ thành công, tự vô hiệu hóa sau 5 lần lỗi liên tiếp
 - **API extraction** — kéo IP động qua HTTP API, hoạt động với hầu hết endpoint của các vendor
 - **Rotating gateway** — entry cố định, IP exit khác nhau ở mỗi request — dùng cho BrightData / Oxylabs / IPRoyal, v.v.
 
 Khi `proxy` provider được bật trong database, đăng ký sẽ thử dynamic proxy trước và fallback về static pool nếu lỗi.
+
+> **Đề xuất riêng cho proxy pool**
+
+<table>
+<tr>
+<td width="220" align="center">
+<a href="https://colaproxy.com/?utm_source=lxf746&utm_medium=lxf746&ref=lxf746" target="_blank">
+<img src="assets/colaproxy.png" alt="ColaProxy" width="180" />
+</a>
+</td>
+<td>
+<b><a href="https://colaproxy.com/?utm_source=lxf746&utm_medium=lxf746&ref=lxf746">ColaProxy</a></b> — Dùng thử miễn phí 90M+ IP sạch ở nước ngoài, giá từ $0.3/GB. Hỗ trợ proxy residential / mobile / static / không giới hạn.<br/>
+Rotation tốc độ cao + cách ly môi trường nhiều tài khoản, giảm tỷ lệ bị chặn và tăng tỷ lệ thành công khi đăng ký / tự động hóa.<br/>
+<a href="https://colaproxy.com/?utm_source=lxf746&utm_medium=lxf746&ref=lxf746"><b>Dùng thử miễn phí →</b></a>
+</td>
+</tr>
+</table>
 
 ### Provider SMS
 
@@ -462,6 +475,17 @@ Tìm mã nhóm trong QQ để tham gia. Báo bug và yêu cầu tính năng vui 
 <b><a href="https://www.rapidproxy.io/?ref=lxf">RapidProxy</a></b> — Proxy dân cư chất lượng cao, xoay IP thông minh, tỷ lệ bị chặn thấp, lưu lượng không hết hạn, hỗ trợ thu thập dữ liệu mạnh mẽ.<br/>
 90M+ IP dân cư thực · 200+ quốc gia / khu vực · 99.9% uptime · &lt;0.5s phản hồi.<br/>
 <a href="https://www.rapidproxy.io/?ref=lxf"><b>Dùng thử miễn phí →</b></a>
+</td>
+</tr>
+<tr>
+<td width="220" align="center">
+<a href="https://www.swiftproxy.net/?ref=lxf746" target="_blank">
+<img src="assets/swiftproxy.svg" alt="Swiftproxy" width="180" />
+</a>
+</td>
+<td>
+<b><a href="https://www.swiftproxy.net/?ref=lxf746">Swiftproxy</a></b> — 80M+ IP dân cư chất lượng cao, kết nối ổn định ẩn danh cao, lưu lượng động không hết hạn, hỗ trợ dùng thử miễn phí.<br/>
+<a href="https://www.swiftproxy.net/?ref=lxf746"><b>Dùng thử miễn phí →</b></a>
 </td>
 </tr>
 </table>
